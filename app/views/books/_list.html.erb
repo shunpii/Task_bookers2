@@ -1,21 +1,23 @@
         <div class="col-md-3">
             <h2>User info</h2>
-            <%= attachment_image_tag @user, :image, :fill, 60, 60, format: 'jpeg' %>
-            <table class="table">
-               <tbody>
-                   <tr></tr>
-                   <tr>
-	                  <th>name</th>
-	                  <th></th>
-                   </tr>
-                   <tr>
-	                  <th>introduction</th>
-	                  <th></th>
-                   </tr>
-               </tbody>
-            </table>
+            <% if user_signed_in? %>
+              <%= attachment_image_tag @user, :image, :fill, 60, 60, format: 'jpeg' %>
+              <table class="table">
+                 <tbody>
+                    <tr></tr>
+                    <tr>
+	                    <th>name</th>
+	                    <th><%= current_user.name %></th>
+                    </tr>
+                    <tr>
+	                    <th>introduction</th>
+	                    <th></th>
+                    </tr>
+                 </tbody>
+              </table>
+            <% end %>
             <div class="row">
-                <%= link_to edit_user_path(@user), class: 'btn btn-outline-secondary btn-block fas fa-user-cog' do %>
+                <%= link_to edit_user_path(:id), class: 'btn btn-outline-secondary btn-block fas fa-user-cog' do %>
                   <i class="fa-solid fa-user-gear"></i>
                 <% end %>
             </div>
