@@ -1,4 +1,4 @@
-<p id="notice"></p>
+<p id="notice"><%= render 'books/flash' %></p>
 <div class="container">
   <div class="row">
     <%= render 'books/list', user: current_user, book: @book_new %>
